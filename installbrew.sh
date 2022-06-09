@@ -6,7 +6,7 @@
 #    By: tel-mouh <tel-mouh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/23 15:22:15 by tel-mouh          #+#    #+#              #
-#    Updated: 2022/06/09 08:04:09 by tel-mouh         ###   ########.fr        #
+#    Updated: 2022/06/09 08:09:45 by tel-mouh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ then
 		
 fi
 export PATH="$HOME/goinfre/homebrew/bin:$PATH"
-printf "$GREEN instaling Valgrind ... \n $NC take few minute$NC \n "
+printf "$GREEN instaling Valgrind ... \n$NC""might take a while $NC \n"
 brew tap LouisBrunner/valgrind > /dev/null 2>&1
 brew install --HEAD LouisBrunner/valgrind/valgrind
 if [ $? -ne 0 ]
