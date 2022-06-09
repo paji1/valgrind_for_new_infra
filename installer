@@ -41,3 +41,4 @@ then
 else
 	printf "$GREEN valgrind installed successfully √$NC\n"
 fi
+exec zsh
