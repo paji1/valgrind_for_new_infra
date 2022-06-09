@@ -14,10 +14,9 @@ if [ $LS -eq 0 ] && [ $GREP -eq 0 ]
 then
 	echo "brew is already installed"
 fi
-if [ $GREP -ne 0 ]
-then
-	echo "export PATH=$HOME/goinfre/homebrew/bin:$PATH" >> ~/.zshrc
-fi
+
+echo "export PATH=$HOME/goinfre/homebrew/bin:$PATH" >> ~/.zshrc
+
 
 if [ $LS -ne 0 ]
 then
