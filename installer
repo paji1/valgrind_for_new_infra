@@ -7,16 +7,17 @@ NC='\033[0m'
 ls ~/goinfre/homebrew &> /dev/null
 LS=$?
 
-echo $PATH | egrep "homebrew" > /dev/null
-GREP=$?
 
-if [ $LS -eq 0 ] && [ $GREP -eq 0 ]
+if [ $LS -eq 0 ] && [ $GREPP -eq 0 ]
 then
 	echo "brew is already installed"
 fi
 
-echo "export PATH=$HOME/goinfre/homebrew/bin:$PATH" >> ~/.zshrc
-
+echo $PATH | grep "homebrew" > /dev/null
+if [ $? -ne 0 ]
+then
+echo "PATH=$HOME/goinfre/homebrew/bin:$PATH" >> ~/.zshrc
+fi
 
 if [ $LS -ne 0 ]
 then
@@ -28,8 +29,7 @@ then
 		printf " ----> X"
 	else
 		printf "$GREEN ----> √ $NC\n"
-	fi
-		
+	fi		
 fi
 export PATH="$HOME/goinfre/homebrew/bin:$PATH"
 printf "$GREEN instaling Valgrind ... \n$NC""might take a while $NC \n"
