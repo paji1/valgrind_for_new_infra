@@ -4,13 +4,12 @@
 GREEN='\033[1;32m'
 NC='\033[0m'
 
-ls ~/goinfre/homebrew &> /dev/null
-LS=$?
 
 
-if [ $LS -eq 0 ] && [ $GREPP -eq 0 ]
+ls ~/goinfre > /dev/null 2>&1
+if [ $? -ne 0 ]
 then
-	echo "brew is already installed"
+	ln -s /goinfre/$USER $HOME/goinfre > /dev/null 2>&1
 fi
 
 echo $PATH | grep "homebrew" > /dev/null
@@ -19,7 +18,8 @@ then
 echo "PATH=$HOME/goinfre/homebrew/bin:$PATH" >> ~/.zshrc
 fi
 
-if [ $LS -ne 0 ]
+ls ~/goinfre/homebrew &> /dev/null
+if [ $? -ne 0 ]
 then
 	printf "$GREEN instaling Brew ... $NC "
 	mkdir ~/goinfre/homebrew > /dev/null 2>&1
