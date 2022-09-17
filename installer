@@ -34,7 +34,15 @@ fi
 export PATH="$HOME/goinfre/homebrew/bin:$PATH"
 printf "$GREEN instaling Valgrind ... \n$NC""might take a while $NC \n"
 brew tap LouisBrunner/valgrind > /dev/null 2>&1
-brew install --HEAD LouisBrunner/valgrind/valgrind
+# edit for old mac
+
+MAC=`sw_vers | awk 'NR==2{print $2}'`
+if [ $MAC == "10.14.6" ]
+then
+FILE="/goinfre/$USER/homebrew/Library/Taps/louisbrunner/homebrew-valgrind/valgrind.rb"
+sed -i '.bak' '/libtool/d' $FILE
+fi
+HOMEBREW_NO_AUTO_UPDATE=1 brew install --HEAD LouisBrunner/valgrind/valgrind
 if [ $? -ne 0 ]
 then
 	printf "ERROR"
